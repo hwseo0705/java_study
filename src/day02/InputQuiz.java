@@ -14,5 +14,7 @@ public class InputQuiz {
         int count = sc.nextInt();
         System.out.println("=============================");
         System.out.printf("상품 재고 총액: %d원\n", price * count);
+
+        sc.close(); // don't forget!!
     }
 }
