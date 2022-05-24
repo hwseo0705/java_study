@@ -15,7 +15,7 @@ public class Main {
 
         String[] token;
         String next;
-        while ((next = br.readLine()) != null) {
+        while (!(next = br.readLine()).isEmpty()) {
             token = next.split(" ");
             System.out.println(Integer.parseInt(token[0]) + Integer.parseInt(token[1]));
         }
