@@ -71,5 +71,7 @@ public class Matrix {
 
         // 4 X 5 X 5 - 3D Array
         int[][][] arr3d_2 = new int[4][5][6];
+
+        // 3D Array contains the address to the 2D Array that contains the address of the 1D Array
     }
 }
