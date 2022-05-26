@@ -44,14 +44,28 @@ public class StringMethod {
 
         // 파일 경로에서 확장자 추출
         String filePath = "D:/local/img/2022/05/06/lalalalala.jpg";
-        String img = filePath.substring(filePath.lastIndexOf('.')+1);
+        String img = filePath.substring(filePath.lastIndexOf('.') + 1);
         System.out.println("img = " + img);
-        switch(img.toLowerCase()) {
-            case "jpg": case "gif": case "png": case "svg":
+        switch (img.toLowerCase()) {
+            case "jpg":
+            case "gif":
+            case "png":
+            case "svg":
                 System.out.println("Image File");
                 break;
             default:
                 System.out.println("Not an Image File");
         }
-    }
+
+        // 문자열의 정수 변환
+        System.out.println("----------------------");
+        String s1 = "100";
+        String s2 = "200";
+
+        // 문자열 -> 정수 : Integer.parseInt(str)
+        // 문자열 -> 실수 : Double.parseDouble(str)
+        // 문자열이 아닌것 -> 문자열 : String.valueOf(data)
+        int sum = Integer.parseInt(s1) + Integer.parseInt(s2);
+        System.out.println("sum = " + sum);
+   }
 }
