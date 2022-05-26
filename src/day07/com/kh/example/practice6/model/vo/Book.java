@@ -14,8 +14,11 @@ public class Book {
         this.title = title;
         this.publisher = publisher;
         this.author = author;
+        this.price = 100;
+        this.discountRate = 0.2;
     }
 
+    // alt + insert --> creates for you
     public Book(String title, String publisher, String author, int price, double discountRate) {
         this.title = title;
         this.publisher = publisher;
@@ -25,6 +28,11 @@ public class Book {
     }
 
     public void inform() {
-        System.out.printf("%s, %s, %s, %d, %f\n", title, publisher, author, price, discountRate);
+        System.out.println("제목: " + title);
+        System.out.println("출판사: " + publisher);
+        System.out.println("작가명: " + author);
+        System.out.println("가격: " + price);
+        System.out.println("할인율: " + discountRate);
+        System.out.println();
     }
 }
