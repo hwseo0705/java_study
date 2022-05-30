@@ -29,6 +29,5 @@ public class Main {
 
         shinhan.showAccounts();
         woori.showAccounts();
-
     }
 }
