@@ -16,5 +16,7 @@ public class Main {
         h.exp = 200;
 
 //        m.blizzard();
+
+        w.equals(m);
     }
 }
