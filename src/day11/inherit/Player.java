@@ -13,7 +13,7 @@ public class Player extends Object { // All classes always extend Object class
         this.name = name;
         this.level = 1;
         this.hp = 50;
-        System.out.println("Player Constructor Called");
+        // System.out.println("Player Constructor Called");
     }
 
     public void showStatus() {

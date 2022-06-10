@@ -67,8 +67,28 @@ public class Main {
         tang.run();
         tang.joinMustangClub();
 
-        Util.line(); // prints line
-        int i = Util.inputN("정수: "); // scanner in utility
-        System.out.println(i);
+//        Util.line(); // prints line
+//        int i = Util.inputN("정수: "); // scanner in utility
+//        System.out.println(i);
+        
+        Util.line();
+        CarShop shop = new CarShop();
+        int money = shop.sellCar(new Mustang());
+        System.out.println("money = " + money);
+
+        Util.line();
+        cast("안뇽");
+        cast(m1);
+    } // end main
+
+    public static void cast(Object o) {
+        // we are only handling 'String' but if argument is 'Object',
+        // you can pass in ANYTHING, so it will give u an error, so check
+        if (o instanceof String) {
+            String s = (String) o;
+            System.out.println("String 변환 성공");
+        } else {
+            System.out.println("변환 불가능");
+        }
     }
 }
