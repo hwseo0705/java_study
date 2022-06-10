@@ -6,4 +6,9 @@ public class Mustang extends Car {
     public void run() {
         System.out.println("Mustang is moving.");
     }
+
+    // Mustang's Method (not inherited)
+    public void joinMustangClub() {
+        System.out.println("Joining Mustang Club");
+    }
 }

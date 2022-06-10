@@ -1,5 +1,7 @@
 package day13.poly.car;
 
+import utility.Util;
+
 public class Main {
     public static void main(String[] args) {
         Car g1 = new Grandeur();
@@ -29,8 +31,44 @@ public class Main {
         seo.drive(new Grandeur());
 
         System.out.println("-----------------------------------------------");
-        seo.buyCar("Grandeur");
+        Car myCar = seo.buyCar("Grandeur");
+        myCar.run();
+        seo.buyCar("Mustang").run(); // run is void, chaining ends
+//        new Driver().buyCar("").run(); // yea idk
+        seo.drive(seo.buyCar("Stinger"));
         seo.buyCar("Genesis");
 
+        System.out.println("-----------------------------------------------");
+        // mm and cc are have the same address
+        Mustang mm = new Mustang();
+        Car cc = mm; // upcasting : automatic
+        // down-casting : problematic --> must use (Mustang)
+        mm = (Mustang) cc; // why do this? idk but is possible
+
+        // ClassCastException
+        // down-casting parent class with child object is possible //
+        // but you cannot down-cast a parent class with parent object //
+        // Car ccc = new Car();
+        // Mustang mmm = (Mustang) ccc;
+
+        System.out.println("----------------------------------------");
+        // myTang is not 'Mustang' it's 'Car'
+        // so you cannot use 'Mustang's' methods
+        // myTang.joinMustangClub(); // -> so you downcast
+        Car myTang = seo.buyCar("Mustang");
+        myTang.run();
+        ((Mustang) myTang).joinMustangClub();
+
+        // Alternative
+        // although buyCar returned 'Car', the object in 'Car' is 'Mustang'
+        // this is why you can downcast 'Car' to 'Mustang'
+        // if the 'Car' has 'Car' object, then down-casting to 'Mustang' is not allowed
+        Mustang tang = (Mustang) seo.buyCar("Mustang");
+        tang.run();
+        tang.joinMustangClub();
+
+        Util.line(); // prints line
+        int i = Util.inputN("정수: "); // scanner in utility
+        System.out.println(i);
     }
 }
