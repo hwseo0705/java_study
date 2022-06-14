@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class RadixSort {
+public class RadixSort { // can't use with negative, gotta do special something for negatives
 
     public static void main(String[] args) {
         int[] arr = {753, 427, 450, 422, 220, 125, 332, 339, 1990, 660};
