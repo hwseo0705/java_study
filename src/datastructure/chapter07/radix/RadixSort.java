@@ -15,7 +15,7 @@ public class RadixSort { // can't use with negative, gotta do special something 
     }
 
     // radix sort
-    private static void sort(int[] arr) {
+    public static void sort(int[] arr) {
 
         // get max digit
         int digit = 0;
