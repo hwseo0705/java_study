@@ -27,5 +27,26 @@ public class StringExample {
             nums[i] = st.nextToken();
         }
         System.out.println(Arrays.toString(nums));
+
+        Util.line();
+
+        /*
+        *   '+=' will use up too much memory space
+        *   because '+=' keeps the original string in original memory and
+        *   creates a new string and saves it in a new memory
+        *
+        *   StringBuilder is way faster
+        * */
+
+
+//        String str = "";
+        StringBuilder sb = new StringBuilder();
+        long ss = System.currentTimeMillis();
+        for (int i = 0; i < 100000; i++) {
+//            str += (i + 1);
+            sb.append(i + 1); // way faster
+        }
+        long ee = System.currentTimeMillis();
+        System.out.println((ee - ss) + "ms");
     }
 }
