@@ -1,24 +1,19 @@
 package day17.collection.practice.view;
 
 import day17.collection.practice.controller.MusicController;
-import day17.collection.practice.model.vo.Music;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MusicMenu {
 
     private BufferedReader br;
-    private List<Music> musicList;
-
     private MusicController mc;
 
     public MusicMenu() {
         br = new BufferedReader(new InputStreamReader(System.in));
-        musicList = new ArrayList<>();
         mc = new MusicController();
     }
 
