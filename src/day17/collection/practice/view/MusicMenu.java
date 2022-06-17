@@ -18,6 +18,10 @@ public class MusicMenu {
     }
 
     public void mainMenu() throws IOException {
+
+        mc.makeDirectory();
+        mc.load(); // loads the saved data
+
         while (true) {
             System.out.println("**** 음악 관리 프로그램 ****");
             System.out.printf("# 현재 등록된 가수: %d명\n", mc.getMusicMap().size());
@@ -30,6 +34,7 @@ public class MusicMenu {
             switch (choice) {
                 case 1:
                     register();
+                    mc.save();
                     break;
                 case 2:
                     search();

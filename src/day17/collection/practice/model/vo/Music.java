@@ -1,9 +1,10 @@
 package day17.collection.practice.model.vo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Music {
+public class Music implements Serializable {
 
     private String name;
     private List<String> songs;

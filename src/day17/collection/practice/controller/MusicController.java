@@ -2,13 +2,14 @@ package day17.collection.practice.controller;
 
 import day17.collection.practice.model.vo.Music;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class MusicController {
 
-    private final Map<String, Music> musicMap;
+    private Map<String, Music> musicMap;
 
     public MusicController() {
         this.musicMap = new HashMap<>();
@@ -39,6 +40,47 @@ public class MusicController {
 
     public Map<String, Music> getMusicMap() {
         return musicMap;
+    }
+
+    //////////////////////////////// IO SAVE FUNCTIONS ////////////////////////////////
+
+    // directory to save '.sav' files
+    public void makeDirectory() {
+        File dir = new File("E:/music");
+        if (!dir.exists()) dir.mkdirs();
+    }
+
+    public void save() {
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("E:/music/m.sav"))) {
+
+            oos.writeObject(musicMap);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //////////////////////////////// IO LOAD FUNCTIONS ////////////////////////////////
+
+    public void load() {
+
+        File file = new File("E:/music/m.sav");
+
+        if (file.exists()) {
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("E:/music/m.sav"))) {
+                musicMap = (Map<String, Music>) ois.readObject();
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
 
