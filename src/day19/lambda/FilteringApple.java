@@ -48,7 +48,9 @@ public class FilteringApple {
      * a. 사과의 필터 조건에 따라 참 거짓을 반환하게 하는 추상 메서드를 가진 ApplePredicate 인터페이스를 정의한다.
      * b. 특정 조건을 설정할 구현 클래스를 정의하고 기능을 오버라이딩
      * c. 위 내용을 기반으로 필터 메서드들을 사용
-     * @problem - 필터 조건별 클래스가 너무 많아진다. 익명 클래스로 해결하면 된다.
+     * @problem
+     * - 필터 조건별 클래스가 너무 많아진다. 익명 클래스로 해결하면 된다.
+     * - 필터 대상이 사과가 아니라면?
      */
 
     // solution a
@@ -84,6 +86,25 @@ public class FilteringApple {
             }
         }
         return resultList;
+    }
+
+    /**
+     * @solution - try 4: 타입을 제네릭타입으로 처리
+     * */
+
+    interface Predicate<T> {
+        boolean test(T t);
+    }
+
+    // generic filter method : when creating a generic method, must put generic type in front
+    public static <T> List<T> filter(List<T> list, Predicate<T> p) {
+        List<T> result = new ArrayList<>();
+        for (T t : list) {
+            if (p.test(t)) {
+                result.add(t);
+            }
+        }
+        return result;
     }
 }
 

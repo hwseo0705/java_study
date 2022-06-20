@@ -3,9 +3,13 @@ package day19.lambda;
 import utility.Util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import static day19.lambda.Apple.Color.*;
+import static day19.lambda.Apple.Color.GREEN;
+import static day19.lambda.Apple.Color.RED;
+import static day19.lambda.Book.Genre.*;
 import static day19.lambda.FilteringApple.*;
 
 public class Main {
@@ -78,5 +82,29 @@ public class Main {
         System.out.println("빨간색이면서 100그램 이상인 사과들만 필터링");
         List<Apple> filteredList2 = filterApples(inventory, a -> a.getColor() == RED && a.getWeight() >= 100);
         filteredList2.forEach(System.out::println);
+
+        Util.line();
+
+        List<Book> bookList = new ArrayList<>();
+        bookList.addAll(Arrays.asList(new Book(10000, HISTORY),
+                new Book(20000, ESSAY),
+                new Book(15000, HISTORY),
+                new Book(14000, BIBLE),
+                new Book(17000, COMIC),
+                new Book(13000, COMIC)));
+
+        // 만화책만 전부 필터링
+        List<Book> filteredBookList = filter(bookList, b -> b.getGenre() == COMIC);
+        filteredBookList.forEach(System.out::println);
+
+        // 정수리스트
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        List<Integer> integers = filter(numbers, n -> n % 2 == 1);
+        integers.forEach(System.out::println);
+
+        Util.line();
+
+        List<Integer> collect = numbers.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
+        System.out.println(collect);
     }
 }
