@@ -1,34 +1,27 @@
 package datastructure.chapter09;
 
-import java.io.IOException;
-import java.util.PriorityQueue;
+import java.util.*;
 
-public class Baekjoon_1715 { // USE PRIORITY QUEUE : 자동정렬
-    public static void main(String[] args) throws IOException {
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//        int N = Integer.parseInt(br.readLine());
-//        PriorityQueue<Integer> queue = new PriorityQueue<>();
-//        for (int i = 0; i < N; i++) {
-//            queue.offer(Integer.parseInt(br.readLine()));
-//        }
-//        br.close();
+// 백준 1715
+public class Baekjoon_1715 {
 
-        int N = 3;
-        int[] nums = {10, 20, 40, 50, 70};
+    public static void main(String[] args) {
 
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
-        while (!queue.isEmpty()) {
-            PriorityQueue<Integer> newQueue = new PriorityQueue<>();
-            newQueue.offer(queue.poll());
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt(); // 카드 묶음 수
+        PriorityQueue<Integer> cardList = new PriorityQueue<>();
+        for (int i = 0; i < N; i++) {
+            cardList.add(sc.nextInt());
         }
-        System.out.println(queue);
 
         int total = 0;
-        total += queue.poll() + queue.poll();
-        queue.offer(total);
+        while (cardList.size() != 1) {
+            int data1 = cardList.poll();
+            int data2 = cardList.poll();
+            total += data1 + data2;
+            cardList.offer(data1 + data2);
+        }
+        System.out.println(total);
 
-
-
-        System.out.println(queue);
     }
 }
