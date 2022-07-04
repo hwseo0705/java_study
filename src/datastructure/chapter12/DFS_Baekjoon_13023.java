@@ -1,4 +1,4 @@
-package datastructure.chapter11;
+package datastructure.chapter12;
 
 /*
   1. 문제에서 요구하는 관계는 A, B, C, D, E 순서로 친구관계가 연결되는지 묻고 있으므로

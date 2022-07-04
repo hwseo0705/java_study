@@ -1,4 +1,4 @@
-package datastructure.chapter11;
+package datastructure.chapter12;
 
 import java.io.BufferedReader;
 import java.io.IOException;
